@@ -1,16 +1,24 @@
 import cv2
-directory = 'reddit_sub_LiminalSpace/'
+import random 
+import glob
+import os, os.path
+import numpy as np
+
+directory = 'dataset/'
 output_dir = 'fliped/'
-img = cv2.imread(directory+'test.jpg')
+
+dirs = np.array([])
+
+for file in glob.glob(directory+'*'):
+    dirs = np.append(dirs, file)
 
 
-flip_img = cv2.flip(img, 0)
+print('go')
+for i in range(len(dirs)):
+    img = cv2.imread(dirs[i])
+    img_fliped = cv2.flip(img, 1)
+    print(i)
+    cv2.imwrite(output_dir+str(i)+'.jpg', img_fliped)
 
-cv2.imshow('original', img)
-cv2.imshow('flip', flip_img)
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-cv2.imwrite(output_dir+'finalImgTest.jpg', flip_img)
 
-print(directory+'test.jpg')
