@@ -11,4 +11,7 @@ for file in glob.glob(origin+'*'):
 print(dirs)
 
 for i in range(len(dirs)):
-    os.rename(dirs[i],origin+ str(i))
+    os.rename(dirs[i],origin+ str(i)+'.jpg')
+
+
+
