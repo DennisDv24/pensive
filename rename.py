@@ -4,7 +4,7 @@ import glob
 import numpy as np
 
 dirs = np.array([])
-origin = 'dataset/'
+origin = 'flipedAndNormalDB/'
 for file in glob.glob(origin+'*'):
     dirs = np.append(dirs, file)
 
