@@ -13,6 +13,9 @@ for file in glob.glob(directory+'*'):
 
 for i in range(len(dirs)):
     print(i)
-    img = cv2.imread(dirs[i])
-    img_resized = cv2.resize(img, (128,128))
-    cv2.imwrite(output_dir+str(i)+'.jpg', img_resized)
+    try:
+        img = cv2.imread(dirs[i])
+        img_resized = cv2.resize(img, (128,128))
+        cv2.imwrite(output_dir+str(i)+'.jpg', img_resized)
+    except Exception as e:
+        print(str(e))
